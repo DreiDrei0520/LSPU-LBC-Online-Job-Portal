@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application - Background Information</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #b3d9ff, #e6f7ff);
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #e0e0ff;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .tab {
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+
+    .tab.active {
+      background: #b3d9ff;
+      border-bottom: 3px solid white;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    .form-grid select,
+    .form-grid input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .back {
+      font-size: 13px;
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    button[type="submit"] {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #357ABD;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Job Application</h1>
+    <p class="subtitle">Please complete the form below to apply for a position with us.</p>
+
+    <div class="tabs">
+      <button class="tab">Personal Information</button>
+      <button class="tab active">Background Information</button>
+      <button class="tab">Additional Information</button>
+    </div>
+
+    <form class="form">
+      <div class="section-title">High School</div>
+      <div class="form-grid">
+        <input type="text" placeholder="Name of school">
+        <input type="text" placeholder="School Address">
+        <select>
+          <option disabled selected>Type of School</option>
+          <option>Public</option>
+          <option>Private</option>
+        </select>
+        <input type="text" placeholder="Year Attended">
+      </div>
+
+      <div class="section-title">College</div>
+      <div class="form-grid">
+        <input type="text" placeholder="Name of school">
+        <input type="text" placeholder="School Address">
+        <select>
+          <option disabled selected>Type of School</option>
+          <option>Public</option>
+          <option>Private</option>
+        </select>
+        <input type="text" placeholder="Year Attended">
+      </div>
+
+      <div class="footer">
+        <a href="#" class="back">‹ Back to Login</a>
+        <button type="submit">Next</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

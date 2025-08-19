@@ -1,0 +1,584 @@
+    :root {
+      --primary: #22809d;
+      --primary-light: #e1f0f5;
+      --primary-lighter: #f0f8fa;
+      --secondary: #0E6A87;
+      --success: #4cc9f0;
+      --success-dark: #38b6db;
+      --warning: #f8961e;
+      --danger: #f72585;
+      --dark: #212529;
+      --darker: #1a1e21;
+      --light: #f8f9fa;
+      --lighter: #fbfcfd;
+      --gray: #6c757d;
+      --gray-light: #e9ecef;
+      --gray-lighter: #f1f3f5;
+      --white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --transition: all 0.3s ease;
+      --sidebar-width: 260px;
+      --sidebar-collapsed-width: 80px;
+      --sidebar-transition: all 0.4s cubic-bezier(0.4, 0,0.2, 1);
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: var(--sidebar-transition);
+  padding: 20px;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Header Styles */
+.topbar {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-title h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--darker);
+}
+
+.topbar-title p {
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin-bottom: 0;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notification-btn, .profile-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--light);
+  color: var(--dark);
+  border: none;
+  transition: var(--transition);
+}
+
+.notification-btn:hover, .profile-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.notification-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--danger);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gray-light);
+  transition: var(--transition);
+}
+
+.profile-btn:hover .profile-img {
+  border-color: var(--primary);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  border: none;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  padding: 0;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.notification-menu {
+  width: 350px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gray-light);
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.notification-item {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gray-light);
+  transition: var(--transition);
+  position: relative;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item:hover {
+  background-color: var(--gray-lighter);
+}
+
+.notification-item.unread {
+  background-color: var(--primary-light);
+}
+
+.notification-icon {
+  color: var(--primary);
+  font-size: 1rem;
+  width: 32px;
+  height: 32px;
+  background: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notification-content p {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.unread-badge {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--danger);
+  border-radius: 50%;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.profile-menu {
+  width: 220px;
+  padding: 0.5rem 0;
+}
+
+.profile-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.profile-menu a:hover {
+  background: var(--gray-lighter);
+  color: var(--primary);
+}
+
+.profile-menu a i {
+  width: 18px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Job Listings Card */
+.job-listings-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+}
+
+.job-listings-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.job-listings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.job-listings-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--darker);
+}
+
+.add-job-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.add-job-btn:hover {
+  background: var(--secondary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Job Cards */
+.job-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.job-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--darker);
+  margin-bottom: 0.5rem;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.job-meta-item i {
+  color: var(--primary);
+}
+
+.job-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.job-btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.edit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.edit-btn:hover {
+  background: var(--secondary);
+  color: white;
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+}
+
+.delete-btn:hover {
+  background: #d11a4a;
+  color: white;
+}
+
+.no-jobs {
+  text-align: center;
+  padding: 3rem;
+  color: var(--gray);
+}
+
+.no-jobs-icon {
+  font-size: 3rem;
+  color: var(--gray-light);
+  margin-bottom: 1rem;
+}
+
+/* Alert messages */
+.alert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  animation: fadeInUp 0.5s ease;
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.alert-error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* Modal Styles */
+.job-modal .modal-content {
+  border: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.job-modal .modal-header {
+  background: var(--primary);
+  color: white;
+  border-bottom: none;
+  padding: 1.5rem;
+}
+
+.job-modal .modal-title {
+  font-weight: 600;
+}
+
+.job-modal .modal-body {
+  padding: 1.5rem;
+}
+
+.job-modal .form-label {
+  font-weight: 500;
+  color: var(--darker);
+  margin-bottom: 0.5rem;
+}
+
+.job-modal .form-control, .job-modal .form-select {
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-light);
+  transition: var(--transition);
+}
+
+.job-modal .form-control:focus, .job-modal .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem rgba(34, 128, 157, 0.25);
+}
+
+.job-modal .form-textarea {
+  min-height: 120px;
+}
+
+.job-modal .modal-footer {
+  border-top: none;
+  padding: 1rem 1.5rem;
+  background: var(--lighter);
+}
+
+.job-modal .btn-save {
+  background: var(--primary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+}
+
+.job-modal .btn-save:hover {
+  background: var(--secondary);
+}
+
+.job-modal .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar-toggler {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .job-listings-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .job-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job-actions {
+    justify-content: flex-start;
+  }
+
+  .notification-menu {
+    width: 300px;
+    right: -50px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .notification-menu {
+    width: 280px;
+    right: -80px !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-slide-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}

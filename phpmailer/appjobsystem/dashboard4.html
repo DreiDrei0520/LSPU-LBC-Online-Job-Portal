@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Status Overview</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f9fa;
+    }
+
+    .navbar {
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-links a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .nav-icons i {
+      font-size: 20px;
+      margin-left: 20px;
+      color: #666;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+    }
+
+    .status-section .step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .status-section .step i {
+      font-size: 20px;
+      margin-right: 10px;
+      color: #4caf50;
+    }
+
+    .status-section .step.pending i {
+      color: #ccc;
+    }
+
+    .status-section .step.active i {
+      color: #f0ad4e;
+    }
+
+    .highlight {
+      background: #fff3cd;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #856404;
+      margin-left: 5px;
+    }
+
+    .details-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 40px;
+    }
+
+    .details-grid .col {
+      flex: 1;
+    }
+
+    .details-grid table {
+      width: 100%;
+      border-spacing: 0 10px;
+    }
+
+    .details-grid td {
+      padding: 6px 0;
+      font-size: 14px;
+    }
+
+    .details-grid td:first-child {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .doc-list i {
+      color: #007bff;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .history .entry {
+      border-top: 1px solid #e0e0e0;
+      padding: 12px 0;
+    }
+
+    .history .entry:first-child {
+      border-top: none;
+    }
+
+    .history .entry .title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .history .entry .message {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .history .entry .date {
+      font-size: 12px;
+      color: #777;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img src="logo.png" alt="Logo" style="height: 40px;" />
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Job</a>
+      <a href="#">Applications</a>
+      <a href="#" class="active">Status</a>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-bell"></i>
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Application Status Progress -->
+    <div class="card status-section">
+      <h3>My Application Status</h3>
+      <div class="step completed">
+        <i class="fas fa-check-circle"></i>
+        <div>
+          <strong>Application Submitted</strong><br/>
+          <span>Jan 15, 2025 - 9:30AM</span>
+        </div>
+      </div>
+      <div class="step completed">
+        <i class="fas fa-check-circle"></i>
+        <div>
+          <strong>Document Verification</strong><br/>
+          <span>Jan 16, 2025 - 2:15PM</span>
+        </div>
+      </div>
+      <div class="step active">
+        <i class="fas fa-calendar-check"></i>
+        <div>
+          <strong>Interview Scheduled</strong><br/>
+          <span>Jan 20, 2025 - 10:00AM</span> 
+          <span class="highlight">Your interview has been scheduled. Please check your email for details.</span>
+        </div>
+      </div>
+      <div class="step pending">
+        <i class="fas fa-circle"></i>
+        <div>
+          <strong>Final Decision</strong><br/>
+          <span>Pending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Position & Documents -->
+    <div class="card details-grid">
+      <div class="col">
+        <h4>Position Details</h4>
+        <table>
+          <tr><td>Position</td><td>Mathematics Teacher</td></tr>
+          <tr><td>Department</td><td>Secondary Education</td></tr>
+          <tr><td>Type</td><td>Full Time</td></tr>
+          <tr><td>Location</td><td>Main Campus</td></tr>
+        </table>
+      </div>
+      <div class="col">
+        <h4>Submitted Documents</h4>
+        <table class="doc-list">
+          <tr><td>Resume.pdf <i class="fas fa-download"></i></td></tr>
+          <tr><td>Teaching_Certificate.pdf <i class="fas fa-download"></i></td></tr>
+          <tr><td>ID_Photo.png <i class="fas fa-download"></i></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Communication History -->
+    <div class="card history">
+      <h4>Communication History</h4>
+      <div class="entry">
+        <div class="title"><i class="fas fa-envelope-open-text"></i> Interview Schedule Confirmation</div>
+        <div class="message">Your interview has been scheduled for January 20, 2025 at 10:00AM.</div>
+        <div class="date">Sent on Jan 16, 2025</div>
+      </div>
+      <div class="entry">
+        <div class="title"><i class="fas fa-check-double"></i> Document Verification Complete</div>
+        <div class="message">Your submitted documents have been verified successfully.</div>
+        <div class="date">Sent on Jan 16, 2025</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

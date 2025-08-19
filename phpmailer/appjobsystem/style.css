@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right, #d9eaff, #f0faff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 700px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background-color: #e0f7f9;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+.tab.active {
+    background-color: #7ce1ea;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.gender {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.back {
+    text-decoration: none;
+    color: #7cb1e8;
+    font-size: 0.9rem;
+}
+
+button[type="submit"] {
+    background-color: #5cc0dc;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+}

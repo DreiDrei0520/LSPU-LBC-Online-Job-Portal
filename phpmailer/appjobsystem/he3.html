@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Application Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    body {
+      background-color: #f4f9f9;
+    }
+    .status-badge {
+      padding: 3px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .badge-verification { background-color: #a1e7cd; color: #000; }
+    .badge-schedule { background-color: #f4e399; color: #000; }
+    .table-avatar {
+      display: flex;
+      align-items: center;
+    }
+    .table-avatar img {
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+    .nav-link.active {
+      font-weight: bold;
+      color: #007bff !important;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+    <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" height="40"></a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Job Listings</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Applications</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Applicant Status</a></li>
+      </ul>
+    </div>
+    <div>
+      <i class="fas fa-bell me-3"></i>
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h4><strong>HR Application Dashboard</strong></h4>
+    <div class="d-flex justify-content-between align-items-center my-3">
+      <input type="text" class="form-control w-50" placeholder="Search Applicants...">
+      <select class="form-select w-auto ms-3">
+        <option>All Departments</option>
+        <option>Secondary Education</option>
+        <option>IT</option>
+      </select>
+    </div>
+    <table class="table table-bordered">
+      <thead class="table-light">
+        <tr>
+          <th>Applicant</th>
+          <th>Position</th>
+          <th>Status</th>
+          <th>Date Applied</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-avatar">
+            <img src="avatar1.png" alt="Andrei Guzman">
+            <div>
+              <strong>Andrei Guzman</strong><br>
+              <small>dre01@example.com</small>
+            </div>
+          </td>
+          <td>
+            <strong>Mathematics Teacher</strong><br>
+            <small>Secondary Education</small>
+          </td>
+          <td><span class="status-badge badge-verification">Documents Verification</span></td>
+          <td><strong>Jan 15, 2025</strong></td>
+          <td><a href="#">View Details</a> <a href="#" class="ms-2">Update Status</a></td>
+        </tr>
+        <tr>
+          <td class="table-avatar">
+            <img src="avatar2.png" alt="Jennylyn Viterbo">
+            <div>
+              <strong>Jennylyn Viterbo</strong><br>
+              <small>jenviterbo@example.com</small>
+            </div>
+          </td>
+          <td>
+            <strong>IT Administrator</strong>
+          </td>
+          <td><span class="status-badge badge-schedule">Interview Schedule</span></td>
+          <td><strong>Jan 14, 2025</strong></td>
+          <td><a href="#">View Details</a> <a href="#" class="ms-2">Update Status</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <nav>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>
